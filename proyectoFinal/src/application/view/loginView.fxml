@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="428.0" prefWidth="430.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="113.0" fitWidth="160.0" layoutX="26.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/kisspng-computer-icons-user-5af73f4c85e8d5.8722659115261530365485%20(1).png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" contentDisplay="BOTTOM" layoutX="160.0" layoutY="40.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="62.0" prefWidth="239.0" text="BIENVENIDO" textOverrun="CLIP">
+         <cursor>
+            <Cursor fx:constant="S_RESIZE" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="60.0" layoutY="176.0" prefHeight="38.0" prefWidth="94.0" text="Usuario:">
+         <font>
+            <Font name="Lucida Bright Regular" size="23.0" />
+         </font>
+      </Label>
+      <TextField layoutX="207.0" layoutY="182.0" prefHeight="25.0" prefWidth="200.0" promptText="Ingrese su usuario" />
+      <Label layoutX="34.0" layoutY="240.0" text="Contraseña:  ">
+         <font>
+            <Font name="Lucida Bright Regular" size="23.0" />
+         </font>
+      </Label>
+      <RadioButton layoutX="185.0" layoutY="338.0" mnemonicParsing="false" text="Administrador">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </RadioButton>
+      <RadioButton layoutX="319.0" layoutY="338.0" mnemonicParsing="false" text="Cliente">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </RadioButton>
+      <Button layoutX="36.0" layoutY="334.0" mnemonicParsing="false" text="Iniciar Sesion">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <PasswordField layoutX="207.0" layoutY="241.0" prefHeight="25.0" prefWidth="200.0" promptText="Ingrese su contraseña" />
+      <Label layoutX="34.0" layoutY="385.0" text="¿No tienes una cuenta? Click Aquí  !" underline="true" />
+   </children>
+</AnchorPane>
