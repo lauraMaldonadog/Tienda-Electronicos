@@ -1,8 +1,200 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
-</AnchorPane>
 
+<AnchorPane prefHeight="617.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TabPane layoutY="133.0" prefHeight="503.0" prefWidth="783.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Gestion Cliente">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="12.0" layoutY="16.0" text="Nombre:" />
+                        <Label layoutX="12.0" layoutY="51.0" text="Identificacion:" />
+                        <Label layoutX="12.0" layoutY="124.0" text="Correo Electronico:" />
+                        <Label layoutX="12.0" layoutY="164.0" text="Fecha de Nacimiento:" />
+                        <TextField layoutX="135.0" layoutY="12.0" prefHeight="25.0" prefWidth="191.0" />
+                        <TextField layoutX="135.0" layoutY="46.0" prefHeight="25.0" prefWidth="191.0" />
+                        <TextField layoutX="134.0" layoutY="81.0" prefHeight="25.0" prefWidth="193.0" />
+                        <TextField layoutX="134.0" layoutY="160.0" prefHeight="25.0" prefWidth="192.0" />
+                        <Separator layoutY="181.0" prefHeight="35.0" prefWidth="783.0" />
+                        <Label layoutX="80.0" layoutY="216.0" text="Listado de Clientes">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="12.0" layoutY="85.0" text="Direccion:" />
+                        <TextField layoutX="134.0" layoutY="120.0" prefHeight="25.0" prefWidth="193.0" />
+                        <Button layoutX="433.0" layoutY="115.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="125.0" text="Agregar Cliente">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="435.0" layoutY="18.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="120.0" text="Nuevo Cliente ">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <ScrollPane layoutX="36.0" layoutY="256.0" prefHeight="197.0" prefWidth="566.0">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="550.0">
+                                 <children>
+                                    <TableView prefHeight="200.0" prefWidth="550.0">
+                                      <columns>
+                                        <TableColumn prefWidth="94.0" text="Nombre" />
+                                        <TableColumn prefWidth="90.0" text="Identificacion" />
+                                          <TableColumn prefWidth="96.0" text="Direccion" />
+                                          <TableColumn prefWidth="121.0" text="Correo Electronico" />
+                                          <TableColumn prefWidth="145.0" text="Fecha de nacimiento" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </ScrollPane>
+                        <Button layoutX="626.0" layoutY="377.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="120.0" text="Eliminar">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="430.0" layoutY="66.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="131.0" text="Actualizar Cliente ">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <TextField layoutX="435.0" layoutY="216.0" />
+                        <Label layoutX="343.0" layoutY="220.0" text="Buscar Cliente:" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Gestion Producto ">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="12.0" layoutY="16.0" text="Nombre:" />
+                        <Label layoutX="12.0" layoutY="51.0" text="Codigo: " />
+                        <Label layoutX="12.0" layoutY="124.0" text="Cantidad Disponible:" />
+                        <Label layoutX="12.0" layoutY="164.0" prefHeight="17.0" prefWidth="80.0" text="Categoria:" />
+                        <TextField layoutX="135.0" layoutY="12.0" prefHeight="25.0" prefWidth="191.0" />
+                        <TextField layoutX="135.0" layoutY="46.0" prefHeight="25.0" prefWidth="191.0" />
+                        <TextField layoutX="134.0" layoutY="81.0" prefHeight="25.0" prefWidth="193.0" />
+                        <Separator layoutY="181.0" prefHeight="35.0" prefWidth="783.0" />
+                        <Label layoutX="80.0" layoutY="216.0" text="Listado de Productos">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="12.0" layoutY="85.0" text="Precio:" />
+                        <TextField layoutX="134.0" layoutY="120.0" prefHeight="25.0" prefWidth="193.0" />
+                        <Button layoutX="421.0" layoutY="115.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="148.0" text="Agregar Producto">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="421.0" layoutY="18.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="148.0" text="Nuevo Producto">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <ScrollPane layoutX="36.0" layoutY="256.0" prefHeight="197.0" prefWidth="566.0">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="550.0">
+                                 <children>
+                                    <TableView prefHeight="200.0" prefWidth="550.0">
+                                       <columns>
+                                          <TableColumn prefWidth="94.0" text="Nombre" />
+                                          <TableColumn prefWidth="90.0" text="Codigo" />
+                                          <TableColumn prefWidth="96.0" text="Precio" />
+                                          <TableColumn prefWidth="121.0" text="Cantidad Disponible" />
+                                          <TableColumn prefWidth="108.0" text="Categoria" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </ScrollPane>
+                        <Button layoutX="626.0" layoutY="377.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="120.0" text="Eliminar">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="421.0" layoutY="66.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="149.0" text="Actualizar Producto ">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <ComboBox layoutX="134.0" layoutY="160.0" prefHeight="25.0" prefWidth="194.0" />
+                        <Label layoutX="345.0" layoutY="220.0" text="Buscar Producto: " />
+                        <TextField layoutX="438.0" layoutY="216.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Reporte Ventas">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="CENTER" layoutX="308.0" layoutY="14.0" prefHeight="37.0" prefWidth="128.0" text="Consultar Ventas">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="98.0" layoutY="106.0" text="Desde la fecha: " />
+                        <Label layoutX="98.0" layoutY="149.0" text="Hasta la fecha: " />
+                        <TextField layoutX="184.0" layoutY="102.0" />
+                        <TextField layoutX="184.0" layoutY="145.0" />
+                        <ScrollPane layoutX="25.0" layoutY="237.0" prefHeight="200.0" prefWidth="715.0">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="699.0">
+                                 <children>
+                                    <TableView prefHeight="200.0" prefWidth="699.0">
+                                      <columns>
+                                        <TableColumn prefWidth="75.0" text="Fecha" />
+                                        <TableColumn prefWidth="75.0" text="Cliente" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </ScrollPane>
+                        <Label layoutX="327.0" layoutY="200.0" text="Historial Ventas">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutY="185.0" prefHeight="0.0" prefWidth="765.0" />
+                        <ComboBox layoutX="185.0" layoutY="60.0" prefHeight="25.0" prefWidth="147.0" promptText="Todos" />
+                        <Label layoutX="98.0" layoutY="64.0" prefHeight="17.0" prefWidth="87.0" text="Elige el cliente" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <ImageView fitHeight="57.0" fitWidth="67.0" layoutX="67.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/kisspng-computer-icons-user-5af73f4c85e8d5.8722659115261530365485%20(1).png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="284.0" layoutY="62.0" prefHeight="27.0" prefWidth="155.0" text="Nombre Empresa">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="27.0" fitWidth="25.0" layoutX="694.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/kisspng-computer-icons-user-5af73f4c85e8d5.8722659115261530365485%20(1).png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblUsuario" layoutX="558.0" layoutY="36.0" prefHeight="25.0" prefWidth="80.0" text="User: " />
+      <Button fx:id="btnCerrarSesion" layoutX="595.0" layoutY="93.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
+   </children>
+</AnchorPane>

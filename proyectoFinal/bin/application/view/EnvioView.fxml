@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="268.0" prefWidth="477.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <Label layoutX="179.0" layoutY="14.0" text="Datos de Envio">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="41.0" layoutY="63.0" text="Nombre de quien recibe: " />
+      <Label layoutX="41.0" layoutY="99.0" text="Departamento:" />
+      <Label layoutX="42.0" layoutY="138.0" text="Ciudad:" />
+      <Label layoutX="42.0" layoutY="175.0" text="Direccion:" />
+      <TextField layoutX="183.0" layoutY="59.0" />
+      <TextField layoutX="183.0" layoutY="95.0" />
+      <TextField layoutX="183.0" layoutY="134.0" />
+      <TextField layoutX="183.0" layoutY="171.0" />
+      <Button layoutX="206.0" layoutY="212.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="103.0" text="Enviar" />
+   </children>
+</AnchorPane>

@@ -28,7 +28,7 @@
             <Font name="Lucida Bright Regular" size="23.0" />
          </font>
       </Label>
-      <TextField layoutX="207.0" layoutY="182.0" prefHeight="25.0" prefWidth="200.0" promptText="Ingrese su usuario" />
+      <TextField fx:id="txtUsuario" layoutX="207.0" layoutY="182.0" onAction="#ingresarUsuarioAction" prefHeight="25.0" prefWidth="200.0" promptText="Ingrese su usuario" />
       <Label layoutX="34.0" layoutY="240.0" text="Contraseña:  ">
          <font>
             <Font name="Lucida Bright Regular" size="23.0" />
@@ -44,12 +44,12 @@
             <Font size="15.0" />
          </font>
       </RadioButton>
-      <Button layoutX="36.0" layoutY="334.0" mnemonicParsing="false" text="Iniciar Sesion">
+      <Button fx:id="btnIniciarSesion" layoutX="36.0" layoutY="334.0" mnemonicParsing="false" text="Iniciar Sesion">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <PasswordField layoutX="207.0" layoutY="241.0" prefHeight="25.0" prefWidth="200.0" promptText="Ingrese su contraseña" />
+      <PasswordField fx:id="txtContraseña" layoutX="207.0" layoutY="241.0" onAction="#ingresarContraseñaAction" prefHeight="25.0" prefWidth="200.0" promptText="Ingrese su contraseña" />
       <Label layoutX="34.0" layoutY="385.0" text="¿No tienes una cuenta? Click Aquí  !" underline="true" />
    </children>
 </AnchorPane>

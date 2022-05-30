@@ -115,7 +115,7 @@
                         </Label>
                         <TextField fx:id="txtTotalMiCarrito" layoutX="448.0" layoutY="91.0" prefHeight="25.0" prefWidth="133.0" />
                         <TextField fx:id="txtArticulosMiCarrito" layoutX="456.0" layoutY="136.0" prefHeight="25.0" prefWidth="125.0" />
-                        <Label layoutX="372.0" layoutY="135.0" text="Articulos:">
+                        <Label layoutX="365.0" layoutY="135.0" text="Articulos:">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -137,12 +137,37 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="577.0">
                      <children>
-                        <Label layoutX="48.0" layoutY="30.0" text="Nombre:" />
-                        <Label layoutX="48.0" layoutY="47.0" text="Identificacion:" />
-                        <Label layoutX="57.0" layoutY="64.0" prefHeight="17.0" prefWidth="57.0" text="Direccion:" />
-                        <Label layoutX="40.0" layoutY="87.0" prefHeight="17.0" prefWidth="111.0" text="Correo Electronico:" />
-                        <Label layoutX="48.0" layoutY="104.0" prefHeight="17.0" prefWidth="134.0" text="Ciudad de Resisdencia:" />
-                        <Label layoutX="55.0" layoutY="121.0" prefHeight="17.0" prefWidth="155.0" text="Departamento de Resisdencia:" />
+                        <Label layoutX="49.0" layoutY="16.0" text="Nombre:" />
+                        <Label layoutX="307.0" layoutY="16.0" text="Identificacion:" />
+                        <Label layoutX="49.0" layoutY="54.0" prefHeight="17.0" prefWidth="57.0" text="Direccion:" />
+                        <Label layoutX="301.0" layoutY="54.0" prefHeight="17.0" prefWidth="111.0" text="Correo Electronico:" />
+                        <Label layoutX="14.0" layoutY="90.0" prefHeight="17.0" prefWidth="134.0" text="Ciudad de Residencia:" />
+                        <Label layoutX="271.0" layoutY="90.0" prefHeight="17.0" prefWidth="172.0" text="Departamento de Residencia:" />
+                        <Separator layoutY="123.0" prefHeight="8.0" prefWidth="614.0" />
+                        <ScrollPane layoutX="12.0" layoutY="161.0" prefHeight="188.0" prefWidth="588.0">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="571.0">
+                                 <children>
+                                    <TableView prefHeight="200.0" prefWidth="573.0">
+                                      <columns>
+                                        <TableColumn fx:id="coumnFecha" prefWidth="105.0" text="Fecha" />
+                                        <TableColumn fx:id="columnCodigo" minWidth="3.0" prefWidth="115.0" text="Codigo" />
+                                          <TableColumn fx:id="columnProductos" prefWidth="114.0" text="Productos" />
+                                          <TableColumn fx:id="columnTotalFactura" prefWidth="126.0" text="Total Factura" />
+                                          <TableColumn fx:id="columnTienda" prefWidth="110.0" text="Tienda" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </ScrollPane>
+                        <Label layoutX="253.0" layoutY="131.0" prefHeight="17.0" prefWidth="97.0" text="Historial Compras" />
+                        <Label layoutX="109.0" layoutY="16.0" text="Label" />
+                        <Label layoutX="119.0" layoutY="54.0" text="Label" />
+                        <Label layoutX="147.0" layoutY="90.0" text="Label" />
+                        <Label layoutX="392.0" layoutY="16.0" text="Label" />
+                        <Label layoutX="412.0" layoutY="54.0" text="Label" />
+                        <Label layoutX="440.0" layoutY="90.0" text="Label" />
                      </children></AnchorPane>
                </content>
             </Tab>
@@ -160,5 +185,10 @@
       </Label>
       <Button fx:id="btnCerrarSesion" layoutX="498.0" layoutY="53.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
       <Label fx:id="lblUsuario" layoutX="498.0" layoutY="15.0" prefHeight="25.0" prefWidth="80.0" text="User: " />
+      <ImageView fitHeight="27.0" fitWidth="25.0" layoutX="553.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/kisspng-computer-icons-user-5af73f4c85e8d5.8722659115261530365485%20(1).png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
