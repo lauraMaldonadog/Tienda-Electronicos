@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="428.0" prefWidth="430.0" style="-fx-background-color: white;" stylesheets="@../LauraStyles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.LoginController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="BOTTOM" layoutX="168.0" layoutY="49.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="62.0" prefWidth="239.0" text="BIENVENIDO" textOverrun="CLIP">
+         <cursor>
+            <Cursor fx:constant="S_RESIZE" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="60.0" layoutY="176.0" prefHeight="38.0" prefWidth="94.0" text="Usuario:">
+         <font>
+            <Font name="Lucida Bright Regular" size="23.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtUsuario" layoutX="207.0" layoutY="182.0" prefHeight="25.0" prefWidth="200.0" promptText="Ingrese su usuario" />
+      <Label layoutX="34.0" layoutY="240.0" text="Contraseña:  ">
+         <font>
+            <Font name="Lucida Bright Regular" size="23.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="rbtAdministrador" layoutX="185.0" layoutY="338.0" mnemonicParsing="false" onAction="#elegirAdminAction" text="Administrador">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="rbtCliente" layoutX="319.0" layoutY="338.0" mnemonicParsing="false" onAction="#elegirClienteAction" text="Cliente">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </RadioButton>
+      <Button fx:id="btnIniciarSesion" layoutX="36.0" layoutY="334.0" mnemonicParsing="false" onAction="#iniciarSesionAction" text="Iniciar Sesion">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <PasswordField fx:id="txtContrasenia" layoutX="207.0" layoutY="241.0" prefHeight="25.0" prefWidth="200.0" promptText="Ingrese su contraseña" />
+      <Label fx:id="lblCrearCuenta" layoutX="34.0" layoutY="385.0" text="¿No tienes una cuenta? Click Aquí  !" underline="true" />
+      <ImageView fitHeight="71.0" fitWidth="157.0" layoutX="14.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/png/sistema/WhatsApp-Image-2022-06-05-at-9.24.20-PM.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

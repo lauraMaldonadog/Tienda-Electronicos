@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="479.0" prefWidth="614.0" stylesheets="@../LauraStyles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ClientController">
+   <children>
+      <TabPane layoutX="-1.0" layoutY="88.0" prefHeight="392.0" prefWidth="614.0" style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Mi Tienda">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="237.0" layoutY="21.0" text="Sede Actual">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblSedeActual" layoutX="276.0" layoutY="51.0" text="Label" />
+                        <Label layoutX="101.0" layoutY="106.0" text="Ingrese su ciudad:" />
+                        <TextField fx:id="txtFiltroCiudad" layoutX="215.0" layoutY="102.0" />
+                        <TableView fx:id="tableCiudades" layoutX="75.0" layoutY="149.0" prefHeight="200.0" prefWidth="431.0">
+                          <columns>
+                            <TableColumn fx:id="columnCiudadMiTienda" prefWidth="156.0" text="Ciudad" />
+                            <TableColumn fx:id="columnDepartamentoMiTienda" prefWidth="156.0" text="Departamento" />
+                              <TableColumn fx:id="columnCodigoMiTienda" prefWidth="118.0" text="Codigo" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Productos">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="577.0">
+                     <children>
+                        <Label layoutX="462.0" layoutY="15.0" text="Sede:">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblSedeActualProductos" layoutX="541.0" layoutY="23.0" text="Label" />
+                        <TextField fx:id="txtBuscarProducto" layoutX="93.0" layoutY="66.0" prefHeight="25.0" prefWidth="97.0" />
+                        <Label layoutX="32.0" layoutY="70.0" text="Filtrar por:" />
+                        <TableView fx:id="tableProductos" layoutX="33.0" layoutY="133.0" prefHeight="216.0" prefWidth="548.0">
+                          <columns>
+                            <TableColumn fx:id="columnImgenProducto" prefWidth="103.0" text="Imagen producto" />
+                            <TableColumn fx:id="columnNombreProducto" prefWidth="105.0" text="Nombre" />
+                              <TableColumn fx:id="columnPrecioProducto" prefWidth="117.0" text="Precio" />
+                              <TableColumn fx:id="columnCantidadProducto" prefWidth="64.0" text="Cantidad" />
+                              <TableColumn fx:id="columnCategoriaProducto" prefWidth="113.0" text="Categoría" />
+                              <TableColumn prefWidth="58.0" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Mi Carrito">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="577.0">
+                     <children>
+                        <Label layoutX="381.0" layoutY="47.0" text="Resumen de compra">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="380.0" layoutY="90.0" text="SubTotal:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtTotalMiCarrito" editable="false" layoutX="461.0" layoutY="91.0" prefHeight="25.0" prefWidth="120.0" />
+                        <TextField fx:id="txtArticulosMiCarrito" editable="false" layoutX="456.0" layoutY="136.0" prefHeight="25.0" prefWidth="125.0" />
+                        <Label layoutX="380.0" layoutY="135.0" text="Articulos:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="btnComprar" layoutX="441.0" layoutY="192.0" mnemonicParsing="false" onAction="#comprarAction" text="¡ES MIO!" />
+                        <ImageView fitHeight="81.0" fitWidth="127.0" layoutX="441.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/png/sistema/es%20mio.png" />
+                           </image>
+                        </ImageView>
+                        <Separator layoutX="357.0" layoutY="34.0" prefHeight="3.0" prefWidth="240.0" />
+                        <Separator layoutX="357.0" layoutY="323.0" prefHeight="3.0" prefWidth="240.0" />
+                        <Separator layoutX="213.0" layoutY="162.0" prefHeight="33.0" prefWidth="289.0" rotate="90.0" />
+                        <Separator layoutX="453.0" layoutY="162.0" prefHeight="33.0" prefWidth="289.0" rotate="90.0" />
+                        <TableView fx:id="tableProductosCarrito" layoutX="31.0" layoutY="72.0" onMouseClicked="#eliminarProductoCarritoAction" prefHeight="278.0" prefWidth="286.0">
+                          <columns>
+                            <TableColumn fx:id="columnNombreMiCarrito" prefWidth="109.0" text="Nombre" />
+                            <TableColumn fx:id="columnCantidadMiCarrito" prefWidth="59.0" text="Cantidad" />
+                              <TableColumn fx:id="columnPrecioMiCarrito" prefWidth="117.0" text="Precio" />
+                              <TableColumn prefWidth="15.0" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="31.0" layoutY="37.0" text="Nombre: " />
+                        <TextField fx:id="txtNombreMiCarrito" layoutX="94.0" layoutY="29.0" prefHeight="25.0" prefWidth="149.0" />
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Mi Cuenta">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="577.0">
+                     <children>
+                        <Label layoutX="49.0" layoutY="16.0" text="Nombre:" />
+                        <Label layoutX="307.0" layoutY="16.0" text="Identificacion:" />
+                        <Label layoutX="49.0" layoutY="54.0" prefHeight="17.0" prefWidth="57.0" text="Direccion:" />
+                        <Label layoutX="301.0" layoutY="54.0" prefHeight="17.0" prefWidth="111.0" text="Correo Electronico:" />
+                        <Label layoutX="14.0" layoutY="90.0" prefHeight="17.0" prefWidth="134.0" text="Ciudad de Residencia:" />
+                        <Label layoutX="271.0" layoutY="90.0" prefHeight="17.0" prefWidth="172.0" text="Departamento de Residencia:" />
+                        <Separator layoutY="123.0" prefHeight="8.0" prefWidth="614.0" />
+                        <ScrollPane layoutX="12.0" layoutY="161.0" prefHeight="188.0" prefWidth="588.0">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="571.0">
+                                 <children>
+                                    <TableView fx:id="tablaFacturas" prefHeight="200.0" prefWidth="573.0">
+                                      <columns>
+                                        <TableColumn fx:id="coumnFecha" prefWidth="105.0" text="Fecha" />
+                                        <TableColumn fx:id="columnCodigo" minWidth="3.0" prefWidth="115.0" text="Codigo" />
+                                          <TableColumn fx:id="columnDireccion" prefWidth="114.0" text="Direccion" />
+                                          <TableColumn fx:id="columnTotalFactura" prefWidth="238.0" text="Total Factura" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </ScrollPane>
+                        <Label layoutX="253.0" layoutY="131.0" prefHeight="17.0" prefWidth="97.0" text="Historial Compras" />
+                        <Label fx:id="lblNombreUsuarioCuenta" layoutX="109.0" layoutY="16.0" text="Label" />
+                        <Label fx:id="lblDireccionClienteCuenta" layoutX="119.0" layoutY="54.0" text="Label" />
+                        <Label fx:id="lblCiudadResidenciaCuenta" layoutX="147.0" layoutY="90.0" text="Label" />
+                        <Label fx:id="lblIdentificacionCuenta" layoutX="392.0" layoutY="16.0" text="Label" />
+                        <Label fx:id="lblCorreoCuenta" layoutX="412.0" layoutY="54.0" text="Label" />
+                        <Label layoutX="440.0" layoutY="90.0" text="Label" />
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <ImageView fitHeight="57.0" fitWidth="67.0" layoutX="73.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/kisspng-computer-icons-user-5af73f4c85e8d5.8722659115261530365485%20(1).png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="199.0" layoutY="27.0" prefHeight="27.0" prefWidth="155.0" text="Nombre Empresa">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnCerrarSesion" layoutX="498.0" layoutY="53.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
+      <Label fx:id="lblUsuario" layoutX="473.0" layoutY="15.0" prefHeight="25.0" prefWidth="80.0" text="User: " />
+      <ImageView fitHeight="27.0" fitWidth="25.0" layoutX="553.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/kisspng-computer-icons-user-5af73f4c85e8d5.8722659115261530365485%20(1).png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

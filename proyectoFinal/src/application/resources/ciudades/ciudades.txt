@@ -1,0 +1,12 @@
+Antioquia,05001,Medellin
+Antioquia,05002,Abejorral
+Antioquia,05004,Abriaqui
+Antioquia,05021,Alejandria
+Antioquia,05030,Amaga
+Antioquia,05031,Amalfi
+Antioquia,05034,Andes
+Antioquia,05036,Angelopolis
+Antioquia,05038,Angostura
+Antioquia,05040,Anori
+Antioquia,05042,Santafé de Antioquia
+Bogota D.C.,11001,Bogota D.C.

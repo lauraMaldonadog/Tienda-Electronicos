@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="408.0" prefWidth="428.0" stylesheets="@../LauraStyles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.FormularioRegistroController">
+   <children>
+      <Label layoutX="129.0" layoutY="14.0" text="¡Registrate aqui!">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="48.0" layoutY="55.0" text="Nombre:" />
+      <Label layoutX="46.0" layoutY="82.0" prefHeight="17.0" prefWidth="77.0" text="Identificacion" />
+      <Label layoutX="40.0" layoutY="142.0" text="Contraseña:" />
+      <Label layoutX="46.0" layoutY="112.0" text="Correo" />
+      <TextField fx:id="txtNombre" layoutX="202.0" layoutY="52.0" promptText="Ingrese su nombre" />
+      <TextField fx:id="txtIdentificacion" layoutX="202.0" layoutY="87.0" promptText="Ingrese sus apellidos" />
+      <TextField fx:id="txtCorreo" layoutX="195.0" layoutY="117.0" promptText="Ingrese usuario" />
+      <TextField fx:id="txtContrasenia" layoutX="163.0" layoutY="138.0" promptText="Crea tu contraseña" />
+      <Button fx:id="btnResgristar" layoutX="152.0" layoutY="348.0" mnemonicParsing="false" onAction="#registrarAction" prefHeight="34.0" prefWidth="124.0" text="Registrarme" />
+      <RadioButton fx:id="rbtAdministrador" layoutX="163.0" layoutY="297.0" mnemonicParsing="false" onAction="#elegirAdministrador" text="Administrador" />
+      <RadioButton fx:id="rbtCliente" layoutX="295.0" layoutY="297.0" mnemonicParsing="false" onAction="#elegirCliente" text="Cliente" />
+      <Label layoutX="29.0" layoutY="280.0" text="Registrarme como:" />
+      <Button fx:id="btnCancelar" layoutX="324.0" layoutY="353.0" mnemonicParsing="false" onAction="#cancelarAction" text="Cancelar" />
+      <Label layoutX="37.0" layoutY="204.0" text="Fecha nacimiento:" />
+      <DatePicker fx:id="dtpFecha" layoutX="163.0" layoutY="200.0" prefHeight="25.0" prefWidth="149.0" />
+      <TextField fx:id="txtDireccion" layoutX="163.0" layoutY="170.0" promptText="Crea tu contraseña" />
+      <Label layoutX="33.0" layoutY="174.0" text="Direccion" />
+   </children>
+</AnchorPane>
