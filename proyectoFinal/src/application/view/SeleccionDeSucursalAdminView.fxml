@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="345.0" prefWidth="592.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.SeleccionDeSucursalAdminController">
+   <children>
+      <Label fx:id="lblNombreAdmin" layoutX="175.0" layoutY="6.0" text="Contacto: " />
+      <Label layoutX="103.0" layoutY="23.0" text="Sedes Disponibles:" />
+      <Label layoutX="336.0" layoutY="23.0" text="Sedes que administra:" />
+      <TableView fx:id="tableSedesDisponibles" layoutX="29.0" layoutY="73.0" onMouseClicked="#seleccionarSedeDisponibleEvent" prefHeight="200.0" prefWidth="253.0">
+        <columns>
+          <TableColumn fx:id="columnNombreSedesDisponibles" prefWidth="75.0" text="Nombre" />
+          <TableColumn fx:id="columnCiudadSedesDisponibles" prefWidth="177.0" text="Ciudad" />
+        </columns>
+      </TableView>
+      <TableView fx:id="tableSedesRegistradas" layoutX="311.0" layoutY="73.0" onMouseClicked="#seleccionarSedeRegistradaEvent" prefHeight="200.0" prefWidth="253.0">
+         <columns>
+            <TableColumn fx:id="columnNombreSedesRegistrados" prefWidth="75.0" text="Nombre" />
+            <TableColumn fx:id="columnCiudadSedesRegistradas" prefWidth="177.0" text="Ciudad" />
+         </columns>
+      </TableView>
+      <Separator layoutX="285.0" layoutY="103.0" prefHeight="0.0" prefWidth="24.0" />
+      <Separator layoutX="284.0" layoutY="261.0" prefHeight="0.0" prefWidth="24.0" />
+      <Button fx:id="btnAgregar" layoutX="33.0" layoutY="280.0" mnemonicParsing="false" onAction="#agregarAction" text="Agregar" />
+      <Button fx:id="btnEliminar" layoutX="317.0" layoutY="280.0" mnemonicParsing="false" onAction="#eliminarAction" text="Eliminar" />
+      <Button fx:id="btnCerrar" layoutX="519.0" layoutY="305.0" mnemonicParsing="false" onAction="#CerrarAction" text="Cerrar" />
+      <Label layoutX="33.0" layoutY="56.0" text="Filtrar :" />
+      <Label layoutX="311.0" layoutY="56.0" text="Filtrar :" />
+      <TextField fx:id="txtFiltrarSedesdisponibles" layoutX="78.0" layoutY="44.0" />
+      <TextField fx:id="txtFiltrarSedesQueAdministra" layoutX="348.0" layoutY="44.0" />
+   </children>
+</AnchorPane>

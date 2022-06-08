@@ -1,5 +1,6 @@
 package application.model;
 
+import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -160,11 +161,6 @@ public class Sede {
 	public ArrayList<Factura> getFacturasPorFecha(LocalDate fechaInicio, LocalDate fechaFin) {
 		ArrayList<Factura> listaFacturasFiltradas=new ArrayList<>();
 		for (Factura factura : listaFacturas) {
-			System.out.println("Fecha inicio "+fechaInicio);
-			System.out.println("Fecha fin "+fechaFin);
-			System.out.println("Fecha comp "+factura.getFecha().toString());
-			System.out.println(fechaInicio.compareTo(factura.getFecha())<0);
-			System.out.println(fechaFin.compareTo(factura.getFecha())>0);
 				if(fechaInicio.compareTo(factura.getFecha())<0 && fechaFin.compareTo(factura.getFecha())>0 )
 				listaFacturasFiltradas.add(factura);
 			
@@ -172,15 +168,110 @@ public class Sede {
 		return listaFacturasFiltradas;
 	}
 	public Cliente getclienteEstrella() {
+		Cliente clienteEstrella=null;
+		ArrayList<Cliente> listaClientesFactura=obtenerClientesFactura();
+		ArrayList<Integer> listaTotalPorCliente=obtenerTotalPorCliente(listaClientesFactura);
 		
-		// TODO Auto-generated method stub
-		return null;
+		for (int i = 0; i < listaTotalPorCliente.size()-1; i++) {
+			if(listaTotalPorCliente.get(i)>listaTotalPorCliente.get(i+1))
+				clienteEstrella=listaClientesFactura.get(i);
+		}
+		
+		return clienteEstrella ;
 	}
+	private ArrayList<Integer> obtenerTotalPorCliente(ArrayList<Cliente> listaClientesFactura) {
+		ArrayList<Integer> listaTotalPorCliente= new ArrayList<>();
+		
+		for (Cliente cliente : listaClientesFactura) {
+			int total=0;
+			for (Factura factura :listaFacturas) {
+				if(factura.validarClienteAsosiado(cliente))
+					total+=factura.getTotal();
+			}
+			listaTotalPorCliente.add(total);
+		}
+		
+		return listaTotalPorCliente;
+	}
+	private ArrayList<Cliente> obtenerClientesFactura() {
+		ArrayList<Cliente> listaClientesFactura=new ArrayList<>();
+		for (Factura factura : listaFacturas) {
+			Cliente clienteAsociado=factura.getClienteAsosiado();
+			if(!listaClientesFactura.contains(clienteAsociado))
+				listaClientesFactura.add(clienteAsociado);
+			
+		}
+		return listaClientesFactura;
+	}
+	public LocalDate obtenerfechaProductoMasVendido(String idProducto) {
+		LocalDate fechaProductoMasVendido=null;
+		int  cantidadProductoMasVendido=-1;
+		int  cantidadAux=-1;
+		for (Factura factura : listaFacturas) {
+			if(factura.containsProductoID(idProducto)){
+				cantidadAux=factura.getCantidadProducto(idProducto);
+				if(cantidadProductoMasVendido<cantidadAux){
+					fechaProductoMasVendido=factura.getFecha();
+					cantidadProductoMasVendido=cantidadAux;
+				}
+			}
+		}
+		return fechaProductoMasVendido;
+	}
+	public ArrayList<Producto> getProductosMasVendidos() {
+		ArrayList<Producto> listaProductosMasVendidos= new ArrayList<>();
 
-	
-	
-	
-	
-	
-	
+		ArrayList<Producto> listaProductosFactura=obtenerProductosFactura();
+		ArrayList<Integer>   listaCantidades=obtenerCantidadesProductoFactura(listaProductosFactura);
+		
+		listaProductosMasVendidos=filtrarProductosMasVendidos(listaProductosFactura,listaCantidades);
+		return listaProductosMasVendidos;
+	}
+	private ArrayList<Producto> filtrarProductosMasVendidos(ArrayList<Producto> listaProductosFactura,
+			ArrayList<Integer> listaCantidades) {
+
+		ArrayList<Producto> listaProductosMasVendidos=new ArrayList<>();
+		Producto productoAux=null;
+		int cantAux;
+		
+		for (int i = 0; i < 3; i++) {
+			cantAux=-1;
+			for (int j = 0; j < listaCantidades.size()-1 ; j++) {
+				if(!listaProductosMasVendidos.contains(listaProductosFactura.get(j)) && !listaProductosMasVendidos.contains(listaProductosFactura.get(j+1)) ){
+					if(listaCantidades.get(j)>cantAux){
+						productoAux=listaProductosFactura.get(j);
+						cantAux=listaCantidades.get(i);
+
+					}
+				}
+			}			
+			listaProductosMasVendidos.add(productoAux);
+		}
+		return listaProductosMasVendidos;
+	}
+	private ArrayList<Integer> obtenerCantidadesProductoFactura(ArrayList<Producto> listaProductosFactura) {
+		ArrayList<Integer> listaCantidades= new ArrayList<>();
+		for (Producto producto : listaProductosFactura) {
+			int cantidad=0;
+			for (Factura factura : listaFacturas) {
+				if(factura.containsProductoID(producto.getCodigo())){
+					cantidad+=factura.getCantidadProducto(producto.getCodigo());
+				}
+			}
+			listaCantidades.add(cantidad);
+		}
+		return listaCantidades;
+	}
+	private ArrayList<Producto> obtenerProductosFactura() {
+		ArrayList<Producto> listaProductosFacturaFiltrados=new ArrayList<>();
+		for (Factura factura :listaFacturas) {
+			ArrayList<Producto> listaProductosFactura=factura.getListaProductos();
+			for (Producto producto : listaProductosFactura) {
+				if(!listaProductosFacturaFiltrados.contains(producto))
+					listaProductosFacturaFiltrados.add(producto);
+			}
+			
+		}
+		return listaProductosFacturaFiltrados;
+	}
 }

@@ -100,5 +100,27 @@ public class Factura {
 		return false;
 	}
 
+	public boolean validarClienteAsosiado(Cliente cliente) {
+		if(this.clienteAsosiado.equals(cliente))
+			return true;
+		return false;
+	}
+
+	public boolean containsProductoID(String idProducto) {
+		for (Producto producto : listaProductos) {
+			if(producto.validarIdentidad(idProducto))
+				return true;
+		}
+		return false;
+	}
+
+	public int getCantidadProducto(String idProducto) {
+		for (Producto producto : listaProductos) {
+			if(producto.validarIdentidad(idProducto))
+				return producto.getExistencias();
+		}
+		return 0;
+	}
+
 	
 }

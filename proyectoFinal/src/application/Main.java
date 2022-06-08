@@ -261,5 +261,9 @@ public class Main extends Application {
 	public int obtenerCodigoFactura(Sede sede) {
 		return empresa.obtenerCodigoFactura(sede);
 	}
+
+	public ArrayList<Sede> obtenerSedesDisponibles() {
+		return empresa.getSedesSinAdmin();
+	}
 	
 }

@@ -133,8 +133,8 @@ public class Empresa {
 	 */
 	public void quemarDatosClientes() {
 		listaClientes.add(new Cliente("selvas", "14378", "cr 234 ", "selvas@gmail.com", null, "1234"));
-		listaClientes.add(new Cliente("laura", "12378", "cr 634 ", "laura@gmail.com", null, "44234"));
-		listaClientes.add(new Cliente("raquel", "92378", "cr 664 ", "raquel@gmail.com", null,"49234"));
+		listaClientes.add(new Cliente("laura", "12378", "cr 634 ", "laura@gmail.com", null, "1234"));
+		listaClientes.add(new Cliente("raquel", "92378", "cr 664 ", "raquel@gmail.com", null,"1234"));
 		
 	}
 	/*
@@ -281,6 +281,16 @@ public class Empresa {
 				return sede.getNumFactura();		
 		}
 		return 0;
+	}
+
+	public ArrayList<Sede> getSedesSinAdmin() {
+		ArrayList<Sede> listaSedesSinAdmin=new ArrayList<>();
+		for (Sede sede : listaSedes) {
+			if(!sede.hasAdmin())
+				listaSedesSinAdmin.add(sede);
+		}
+		
+		return listaSedesSinAdmin;
 	}
 
 

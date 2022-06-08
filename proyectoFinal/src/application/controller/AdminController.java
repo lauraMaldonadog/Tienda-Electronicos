@@ -70,6 +70,7 @@ public class AdminController implements Initializable{
 	//datas de las tablas
 	ObservableList<Cliente> listaClientesRegistradosData = FXCollections.observableArrayList();
 	ObservableList<Producto> listaProductosRegistradosData = FXCollections.observableArrayList();
+	ObservableList<Producto> listaProductosRegistradosReporteAdicionalData = FXCollections.observableArrayList();
 	ObservableList<Factura> listaFacturasEmpresaData = FXCollections.observableArrayList();
 	ObservableList<Factura> listaFacturasClienteData = FXCollections.observableArrayList();
 	ObservableList<Sede> listaSedesRegistradasData = FXCollections.observableArrayList();
@@ -384,21 +385,40 @@ public class AdminController implements Initializable{
 
 	@FXML
     void obtenerClienteEstrellaAction(ActionEvent event) {
-		obtenerClienteEstrella();
+		try {
+			obtenerClienteEstrella();
+			
+		} catch (Exception e) {
+			Utilidades.mostrarMensaje("Error","error al mostrar el cliente estrella", "msm :"+e.getMessage()+" cause :"+e.getCause(), AlertType.ERROR);
+		}
 
     }
 
 	@FXML
     void obtenerProductoPorFechaMasVendidoAction(ActionEvent event) {
+		try {
+		obtenerProductoPorFechaMasVendido();
+			
+		} catch (Exception e) {
+			Utilidades.mostrarMensaje("Error","error al mostrar la fecha en que más se vendio el producto", "msm :"+e.getMessage()+" cause :"+e.getCause(), AlertType.ERROR);
+		}
 
     }
 
-    @FXML
+
+	@FXML
     void obtenerProductosMasVendidosAction(ActionEvent event) {
+		try {
+			obtenerProductosMasVendidos();
+			
+		} catch (Exception e) {
+			Utilidades.mostrarMensaje("Error","error al mostrar los tres productos más vendidos", "msm :"+e.getMessage()+" cause :"+e.getCause(), AlertType.ERROR);
+		}
 
     }
 
-    @FXML
+
+	@FXML
     void cerrarSesionAction(ActionEvent event) {
     	try {
 			main.mostrarVentanaLogin();
@@ -486,6 +506,7 @@ public class AdminController implements Initializable{
 		tablaNombreSucursalReporteAdicional.getSelectionModel().selectedItemProperty().addListener((obs,oldSelection,newSelection) -> {
 
 			nombreSucursalReporteAdicionalSeleccionado = newSelection;
+			refrescarTablaProductosRegistradosReporteAdicional(nombreSucursalReporteAdicionalSeleccionado.getListaProductos());
 
 		});
 		
@@ -494,7 +515,8 @@ public class AdminController implements Initializable{
 			productoReporteAdicionalSeleccionado = newSelection;
 
 		});
-		
+			
+
 		
 		//seccion donde se configuran los bindings para la busqueda automatica de gestion cliente
 		filteredClienteGestioData = new FilteredList<>(listaClientesRegistradosData, p -> true);
@@ -587,7 +609,7 @@ public class AdminController implements Initializable{
 			});
 		});
 		//seccion donde se configuran los bindings para la busqueda automatica reportes adicionales 
-		filteredProductosReporteAdicionalData = new FilteredList<>(listaProductosRegistradosData, p -> true);
+		filteredProductosReporteAdicionalData = new FilteredList<>(listaProductosRegistradosReporteAdicionalData, p -> true);
 
 		txtNombreProductoReporteAdicional.textProperty().addListener((observable, oldValue, newValue) -> {
 			filteredProductosReporteAdicionalData.setPredicate(producto-> {
@@ -609,7 +631,6 @@ public class AdminController implements Initializable{
 													    TipoProducto.HOGAR,TipoProducto.EMPRESARIALES);
 
 	}
-
 
 
 
@@ -1050,9 +1071,44 @@ public class AdminController implements Initializable{
     private void obtenerClienteEstrella() {
     	if(nombreSucursalReporteAdicionalSeleccionado!=null){
     		Cliente clienteEstrella=nombreSucursalReporteAdicionalSeleccionado.getclienteEstrella();
-    		Utilidades.mostrarMensaje("Cliente estrella", "El cliente con más compras es ",
-    							      "nombre: "+clienteEstrella.getNombre()+" id:"+clienteEstrella.getIdentificacion(), AlertType.INFORMATION);
+    		if(clienteEstrella!=null)
+    			Utilidades.mostrarMensaje("Cliente estrella", "El cliente con más compras es ",
+    					"nombre: "+clienteEstrella.getNombre()+" id:"+clienteEstrella.getIdentificacion(), AlertType.INFORMATION);
     	}
 		
+	}
+    private void obtenerProductoPorFechaMasVendido() {
+    	if(nombreSucursalReporteAdicionalSeleccionado!=null && productoReporteAdicionalSeleccionado!=null  ){
+    		LocalDate fechaProducto=nombreSucursalReporteAdicionalSeleccionado.obtenerfechaProductoMasVendido(productoReporteAdicionalSeleccionado.getCodigo());
+    		if(fechaProducto!=null)
+    			Utilidades.mostrarMensaje("Fecha en que más se vendió un producto","El producto ["+productoReporteAdicionalSeleccionado.getNombre()+"] se vendio mas veces en la fecha",
+    									  fechaProducto.toString(), AlertType.INFORMATION);
+
+
+    	}
+		
+	}
+    private void obtenerProductosMasVendidos() {
+    	if(nombreSucursalReporteAdicionalSeleccionado!=null){
+    		ArrayList<Producto> listaProductosMasVendidos=nombreSucursalReporteAdicionalSeleccionado.getProductosMasVendidos();
+    		if(listaProductosMasVendidos.size()>0){
+    			String info="";
+    			for (Producto producto : listaProductosMasVendidos) {
+    				info+=producto.toString();
+				}
+
+    			Utilidades.mostrarMensaje("Tres productos mas vendidos","Productos mas vendidos por la sede"+nombreSucursalReporteAdicionalSeleccionado.getNombre(),
+    									  info, AlertType.INFORMATION);
+    		}
+    			
+    	}
+		
+	}
+
+
+	private void refrescarTablaProductosRegistradosReporteAdicional(ArrayList<Producto> listaProductos) {
+		listaProductosRegistradosReporteAdicionalData.clear();
+		listaProductosRegistradosReporteAdicionalData.addAll(listaProductos);
+		tablaProductoReporteAdicional.refresh();
 	}
 } 
