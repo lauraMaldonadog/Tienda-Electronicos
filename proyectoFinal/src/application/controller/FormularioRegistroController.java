@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 
 import application.Main;
 import application.exception.DatosInvalidosClienteException;
+import application.model.Administrador;
 import application.model.Cliente;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -103,10 +104,16 @@ public class FormularioRegistroController implements Initializable {
     		String contrasenia=txtContrasenia.getText();
     		validatDatosCliente(nombre,id,correo,fechaNacimiento,contrasenia);
 
-    		Cliente cliente= new Cliente(nombre, id, direccion, correo, fechaNacimiento, contrasenia);
-    		System.out.println(cliente.toString());
-    		main.agregarCliente(cliente);
-    		main.mostrarVentanaLogin();
+    		if(rbtCliente.isSelected()){
+    			Cliente cliente= new Cliente(nombre, id, direccion, correo, fechaNacimiento, contrasenia);
+    			main.agregarCliente(cliente);
+    			main.mostrarVentanaLogin();
+    		}else{
+    			Administrador admin= new Administrador(nombre, id, direccion, correo, fechaNacimiento, contrasenia);
+    			main.mostrarVentanaSeleccionDeSucursal(admin);
+    			
+    		}
+
     		
 			
 		} catch (Exception e) {

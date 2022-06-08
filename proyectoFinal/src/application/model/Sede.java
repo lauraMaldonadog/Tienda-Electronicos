@@ -274,4 +274,9 @@ public class Sede {
 		}
 		return listaProductosFacturaFiltrados;
 	}
+	public boolean hasAdmin() {
+		if(this.administrador!=null)
+			return true;
+		return false;
+	}
 }

@@ -70,6 +70,15 @@ public class Administrador extends Persona  {
 	}
 
 
+
+
+
+	public void rmSede(Sede sedeRegistradaSeleccionada) {
+		listaSedes.remove(sedeRegistradaSeleccionada);
+		
+	}
+
+
 	
 
 

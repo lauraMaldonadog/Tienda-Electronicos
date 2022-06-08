@@ -9,6 +9,7 @@ import application.controller.ClientController;
 import application.controller.EnvioController;
 import application.controller.FormularioRegistroController;
 import application.controller.LoginController;
+import application.controller.SeleccionDeSucursalAdminController;
 import application.exception.AdminNoEncontradoException;
 import application.exception.ClienteExisteException;
 import application.exception.ClienteNoEncontradoException;
@@ -93,6 +94,20 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 	}
+
+	public void mostrarVentanaSeleccionDeSucursal(Administrador admin) throws IOException {
+			secundatyStage.setTitle("Gestion sedes");
+			FXMLLoader loader= new FXMLLoader();
+			loader.setLocation(Main.class.getResource("view/SeleccionDeSucursalAdminView.fxml"));
+			AnchorPane rootLayout=(AnchorPane) loader.load();
+
+			SeleccionDeSucursalAdminController controller=loader.getController();
+			controller.setMain(this,admin);
+			Scene escena= new Scene(rootLayout);
+			secundatyStage.setScene(escena);
+			secundatyStage.show();
+	}
+
 
 	public void mostrarVentanaAdmin(Administrador admin) {
 		try {

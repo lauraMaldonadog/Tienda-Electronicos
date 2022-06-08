@@ -6,6 +6,7 @@ import application.Main;
 import application.model.Administrador;
 import application.model.Ciudad;
 import application.model.Sede;
+import application.model.Utilidades;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -18,6 +19,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
@@ -74,26 +76,42 @@ public class SeleccionDeSucursalAdminController implements Initializable{
 
    @FXML
    void agregarAction(ActionEvent event) {
+	   try {
+	   agregar();
+	} catch (Exception e) {
+		Utilidades.mostrarMensaje("Error","Error al agregar", "msm :"+e.getMessage()+" cause:"+e.getCause(), AlertType.ERROR);
+	}
 
    }
 
-   @FXML
+
+
+@FXML
    void eliminarAction(ActionEvent event) {
+	try {
+		eliminar();
+	} catch (Exception e) {
+		Utilidades.mostrarMensaje("Error","Error al eliminar", "msm :"+e.getMessage()+" cause:"+e.getCause(), AlertType.ERROR);
+	}
 
    }
 
-   @FXML
+
+
+
+
+@FXML
    void CerrarAction(ActionEvent event) {
 
    }
    @FXML
    void seleccionarSedeDisponibleEvent(MouseEvent event) {
-
+	   sedeDisponibleSeleccionada=tableSedesDisponibles.getSelectionModel().getSelectedItem();
    }
 
    @FXML
    void seleccionarSedeRegistradaEvent(MouseEvent event) {
-
+	   sedeRegistradaSeleccionada=tableSedesRegistradas.getSelectionModel().getSelectedItem();
    }
    @Override
    public void initialize(URL location, ResourceBundle resources) {
@@ -160,4 +178,18 @@ private void refrescarTablas() {
 	listaSedesRegistradasData.addAll(admin.getListaSedes());
 	
 }
+   private void agregar() {
+	   if(sedeDisponibleSeleccionada!=null){
+		   admin.setSede(sedeDisponibleSeleccionada);
+		   sedeDisponibleSeleccionada.setAdministrador(admin);
+		   refrescarTablas();
+	   }
+   }
+   private void eliminar() {
+	   if(sedeRegistradaSeleccionada!=null){
+		   admin.rmSede(sedeRegistradaSeleccionada);
+		   sedeRegistradaSeleccionada.setAdministrador(null);
+		   refrescarTablas();
+	   }
+   }
 }

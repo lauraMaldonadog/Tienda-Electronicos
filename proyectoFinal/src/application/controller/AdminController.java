@@ -137,6 +137,8 @@ public class AdminController implements Initializable{
 
     @FXML
     private Button btnProductoMasVendido;
+    @FXML
+    private Button btnGestionarSedes;
 
     @FXML
     private TableColumn<Producto, Integer> columnCantidadDisponibleProductoGestion;
@@ -428,7 +430,15 @@ public class AdminController implements Initializable{
 		}
 
     }
+	@FXML
+    void gestionaSedesAction(ActionEvent event) {
+    	try {
+			main.mostrarVentanaSeleccionDeSucursal(admin);
+		} catch (IOException e) {
+			Utilidades.mostrarMensaje("Error","error al gestionar sedes", "msm :"+e.getMessage()+" cause :"+e.getCause(), AlertType.ERROR);
+		}
 
+    }
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
